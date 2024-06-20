@@ -1,93 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Child Information Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 20px;
-        }
-        h2 {
-            color: #333;
-        }
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: auto;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        input[type="text"], input[type="number"], input[type="date"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .immunization {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 16px;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-        }
-        button, input[type="submit"], input[type="reset"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-        button:hover, input[type="submit"]:hover, input[type="reset"]:hover {
-            background-color: #45a049;
-        }
-        .error {
-            color: red;
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-<body>
-    <h2>Child Information Form</h2>
+<?php
+include_once __DIR__.'/partials/header.php';
+include_once __DIR__.'/partials/navbar.php';
+include_once __DIR__.'/partials/sidebar.php';
+?>
+
+<div class="container main-bar">
+<h2 class="text-center mt-4">Child Information Form</h2>
     <form id="childInfoForm">
         <div class="error" id="error-message"></div>
         <label for="childID">Child ID:</label>
-        <input type="text" id="childID" name="childID" required>
+        <input type="text" class="form-control" id="childID" name="childID" required>
 
         <label for="height">Height (cm):</label>
-        <input type="number" id="height" name="height" required>
+        <input type="number" class="form-control" id="height" name="height" required>
 
         <label for="weight">Weight (kg):</label>
-        <input type="number" id="weight" name="weight" required>
+        <input type="number" class="form-control" id="weight" name="weight" required>
 
         <div id="immunizations">
-            <h3>Immunizations</h3>
+            <h3 class="my-3">Immunizations</h3>
             <div class="immunization">
-                <label for="immunizationName1">Name:</label>
-                <input type="text" id="immunizationName1" name="immunizationName1" required>
-                <label for="immunizationDate1">Date:</label>
-                <input type="date" id="immunizationDate1" name="immunizationDate1" required>
-                <label for="immunizationDose1">Dose:</label>
-                <input type="text" id="immunizationDose1" name="immunizationDose1" required>
+                <div class="form-group d-flex justify-content-between gap-0">
+                    <div class="">
+                        <label for="immunizationName1">Name:</labe>
+                        <input type="text" class="form-control" id="immunizationName1" name="immunizationName1" required>
+                    </div>
+                    
+                    <div class="">
+                        <label for="immunizationDate1">Date:</label>
+                        <input type="date" class="form-control" id="immunizationDate1" name="immunizationDate1" required>
+                    </div>
+                    
+                    <div class="">
+                        <label for="immunizationDose1">Dose:</label>
+                        <input type="text" class="form-control" id="immunizationDose1" name="immunizationDose1" required>
+                    </div>
+                    
+                </div>        
             </div>
         </div>
-        <button type="button" onclick="addImmunization()">Add More Immunizations</button><br><br>
+        <button type="button" class="btn btn-success" onclick="addImmunization()">Add More Immunizations</button><br><br>
 
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">
+        <input type="submit" class="btn btn-success" value="Submit">
+        <input type="reset" class="btn btn-danger" value="Reset">
     </form>
+</div>
+    
 
     <script>
         let immunizationCount = 1;
@@ -98,12 +56,20 @@
             const newImmunizationDiv = document.createElement('div');
             newImmunizationDiv.classList.add('immunization');
             newImmunizationDiv.innerHTML = `
-                <label for="immunizationName${immunizationCount}">Name:</label>
-                <input type="text" id="immunizationName${immunizationCount}" name="immunizationName${immunizationCount}" required>
-                <label for="immunizationDate${immunizationCount}">Date:</label>
-                <input type="date" id="immunizationDate${immunizationCount}" name="immunizationDate${immunizationCount}" required>
-                <label for="immunizationDose${immunizationCount}">Dose:</label>
-                <input type="text" id="immunizationDose${immunizationCount}" name="immunizationDose${immunizationCount}" required>
+                <div class="form-group  d-flex justify-content-between gap-0">
+                    <div>
+                        <label for="immunizationName${immunizationCount}">Name:</label>
+                        <input type="text" class="form-control" id="immunizationName${immunizationCount}" name="immunizationName${immunizationCount}" required>
+                    </div>
+                    <div>
+                        <label for="immunizationDate${immunizationCount}">Date:</label>
+                        <input type="date" class="form-control" id="immunizationDate${immunizationCount}" name="immunizationDate${immunizationCount}" required>
+                    </div>
+                    <div>
+                        <label for="immunizationDose${immunizationCount}">Dose:</label>
+                        <input type="text" class="form-control" id="immunizationDose${immunizationCount}" name="immunizationDose${immunizationCount}" required>
+                    </div>
+                </div>
             `;
             immunizationsDiv.appendChild(newImmunizationDiv);
         }
@@ -147,5 +113,4 @@
             }
         });
     </script>
-</body>
-</html>
+<?php include_once __DIR__.'/partials/footer.php'; ?>

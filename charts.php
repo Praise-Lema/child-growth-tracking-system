@@ -5,7 +5,10 @@ include_once __DIR__.'/partials/sidebar.php';
 ?>
 
 <div class="container main-bar">
-    <h1 class="text-center">Charts</h1>
+    <h1 class="text-center mt-4">Charts</h1>
+    <div class="container">
+        <canvas id="charts"></canvas>
+    </div>
 </div>
 
 <?php include_once __DIR__.'/partials/footer.php'; ?>

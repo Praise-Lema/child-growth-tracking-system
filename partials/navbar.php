@@ -22,10 +22,10 @@ define('ROOT', 'http://localhost:8080/');
         </ul>
         <ul class="navbar-nav ">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo ROOT ?>auth/loginpage.php" aria-disabled="true">Login</a>
+                <a class="nav-link" href="<?php echo ROOT ?>auth/loginpage.php" aria-disabled="true"><span class="fa fa-sign-in me-1"></span>Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo ROOT ?>auth/signup.php" aria-disabled="true">Sign Up</a>
+                <a class="nav-link" href="<?php echo ROOT ?>auth/signup.php" aria-disabled="true"><span class="fa fa-user-plus me-1"></span>Sign Up</a>
             </li>
         </ul>
     </div>
